@@ -102,14 +102,14 @@ win32 {
     CONFIG += embed_manifest_exe
     INCLUDEPATH += c:/boost/
     RC_FILE = ../win/launchy.rc
-	LIBS += shell32.lib \
-		user32.lib \
-		gdi32.lib \
-		ole32.lib \
-		comctl32.lib \
-		advapi32.lib \
-		userenv.lib \
-        netapi32.lib
+	LIBS += -lshell32 \
+		-luser32 \
+		-lgdi32 \
+		-lole32 \
+		-lcomctl32 \
+		-ladvapi32 \
+		-luserenv \
+		-lnetapi32
     DEFINES = VC_EXTRALEAN \
         WIN32 \
         _UNICODE \
@@ -122,8 +122,7 @@ win32 {
         CONFIG(debug, debug|release):DESTDIR = ../debug/
         CONFIG(release, debug|release):DESTDIR = ../release/
     }
-    QMAKE_CXXFLAGS_RELEASE += /Zi
-    QMAKE_LFLAGS_RELEASE += /DEBUG
+    QMAKE_CXXFLAGS += -fpermissive
 }
 macx { 
     ICON = ../misc/Launchy_Icon/launchy_icon_mac.icns

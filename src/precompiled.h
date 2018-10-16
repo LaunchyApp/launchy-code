@@ -43,6 +43,9 @@ using namespace boost;
 #define _WIN32_WINNT 0x0600	
 #define _WIN32_IE 0x0700
 #include <windows.h>
+#ifdef Q_CC_MINGW
+#include <initguid.h>
+#endif  // Q_CC_MINGW
 #include <tchar.h>
 #include <shlobj.h>
 #include <shlguid.h>
